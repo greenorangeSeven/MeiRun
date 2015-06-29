@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NtE-UN-phW">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--订单-->
+        <scene sceneID="bQ0-2B-WfV">
+            <objects>
+                <viewController id="c5K-UD-KYG" customClass="OrderViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lLf-c1-OJ8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wvD-8P-HXo">
+                                <rect key="frame" x="0.0" y="124" width="320" height="395"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" id="4dW-gr-tDr">
+                                <rect key="frame" x="0.0" y="64" width="320" height="52"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xrm-gd-ojv">
+                                        <rect key="frame" x="121" y="0.0" width="79" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="进行中">
+                                            <color key="titleColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="inAction:" destination="c5K-UD-KYG" eventType="touchUpInside" id="qWe-Of-ynD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QXc-yA-c1n">
+                                        <rect key="frame" x="223" y="0.0" width="79" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="待评价">
+                                            <color key="titleColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="noCommAction:" destination="c5K-UD-KYG" eventType="touchUpInside" id="B8z-lg-I3y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zTW-Qr-g7j">
+                                        <rect key="frame" x="18" y="0.0" width="79" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="全部" backgroundImage="activity_tab_bg">
+                                            <color key="titleColor" red="1" green="0.41568627450000001" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="allAction:" destination="c5K-UD-KYG" eventType="touchUpInside" id="VM5-M4-k2O"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.94117647058823528" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="订单" id="th9-vF-Wnb"/>
+                    <navigationItem key="navigationItem" title="订单" id="9xS-Vv-oGR"/>
+                    <connections>
+                        <outlet property="allBtn" destination="zTW-Qr-g7j" id="DC7-bn-T0o"/>
+                        <outlet property="inBtn" destination="xrm-gd-ojv" id="yKX-On-dEL"/>
+                        <outlet property="noCommBtn" destination="QXc-yA-c1n" id="phl-UG-nIt"/>
+                        <outlet property="tableView" destination="wvD-8P-HXo" id="U0h-CA-ul5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BHG-Xc-bcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66" y="74"/>
+        </scene>
+        <!--首页-->
+        <scene sceneID="GTT-cm-B7Q">
+            <objects>
+                <navigationController id="RLb-Kf-gLd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="首页" image="tabbar_home" id="bbc-gJ-7Sn" userLabel="首页"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k6v-lg-awi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zo8-Fe-O1o" kind="relationship" relationship="rootViewController" id="WS0-fr-dgz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6bW-JW-D83" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-369.06666666666666" y="-650.36000000000001"/>
+        </scene>
+        <!--美约吧-->
+        <scene sceneID="UW2-5V-ruw">
+            <objects>
+                <viewController id="zo8-Fe-O1o" customClass="MainViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uaO-09-kPN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="F6F-C8-EcZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="517"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_demo" id="JLp-Ld-I4v">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5Js-30-l7f">
+                                        <rect key="frame" x="6" y="119" width="150" height="222"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" backgroundImage="main_order_service">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleShadowColor" red="1" green="0.41568627450000001" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="orderServiceAction:" destination="zo8-Fe-O1o" eventType="touchUpInside" id="6AW-zH-mfu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dLb-qL-Faz">
+                                        <rect key="frame" x="163.99999990224833" y="119" width="150" height="108"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" backgroundImage="main_meijie">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="meiJie:" destination="zo8-Fe-O1o" eventType="touchUpInside" id="Tc8-lo-Np2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tzd-8Z-yP8">
+                                        <rect key="frame" x="6" y="347" width="150" height="108"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" backgroundImage="main_zaoxing">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="zaoxingAction:" destination="zo8-Fe-O1o" eventType="touchUpInside" id="8hN-CA-wrJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ijh-Of-4Ko">
+                                        <rect key="frame" x="163.99999990224833" y="347" width="150" height="108"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" backgroundImage="main_meirong">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="meiRongAction:" destination="zo8-Fe-O1o" eventType="touchUpInside" id="lvk-yE-G0L"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9tm-5R-74x">
+                                        <rect key="frame" x="163" y="233" width="150" height="108"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" backgroundImage="main_meijia">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="meiJiaAction:" destination="zo8-Fe-O1o" eventType="touchUpInside" id="0he-CX-p1w"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="首页" selectedImage="tabbar_home" id="MT7-1K-Ki4"/>
+                    <navigationItem key="navigationItem" title="美约吧" id="Qyi-8i-XpE"/>
+                    <connections>
+                        <outlet property="advImg" destination="JLp-Ld-I4v" id="7xk-Vu-ED2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZl-b4-IBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="50" y="-965"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="miW-3W-ptH">
+            <objects>
+                <tabBarController hidesBottomBarWhenPushed="YES" id="NtE-UN-phW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TyP-Ex-00i"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="CTf-SG-1vK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="RLb-Kf-gLd" kind="relationship" relationship="viewControllers" id="RYv-Hz-adw"/>
+                        <segue destination="P7F-sF-GKz" kind="relationship" relationship="viewControllers" id="duP-Qh-TTK"/>
+                        <segue destination="uRL-8W-5lt" kind="relationship" relationship="viewControllers" id="9YQ-3h-z9Q"/>
+                        <segue destination="vKo-y0-shn" kind="relationship" relationship="viewControllers" id="OOg-Rf-2fa"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FaZ-ig-DTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-817.60000000000002" y="453.45333333333332"/>
+        </scene>
+        <!--订单-->
+        <scene sceneID="oqV-hR-UKr">
+            <objects>
+                <navigationController id="P7F-sF-GKz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="订单" image="tabbar_order" id="OfY-XW-gCs"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KSL-EG-y14">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="c5K-UD-KYG" kind="relationship" relationship="rootViewController" id="VBT-Ez-5ol"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pbu-jB-tni" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-369.06666666666666" y="74.786666666666662"/>
+        </scene>
+        <!--朋友圈-->
+        <scene sceneID="aj4-km-qwF">
+            <objects>
+                <navigationController id="uRL-8W-5lt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="朋友圈" image="tabbar_circle" id="XuP-KT-pJi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aKE-ul-erl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Tpz-9O-wbv" kind="relationship" relationship="rootViewController" id="uMR-k8-BEX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idV-v7-3JT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-369.06666666666666" y="724.20000000000005"/>
+        </scene>
+        <!--Item 3-->
+        <scene sceneID="Vj7-ir-S5w">
+            <objects>
+                <viewController storyboardIdentifier="CircleOfFriendsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tpz-9O-wbv" userLabel="Item 3" customClass="CircleOfFriendsView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9bu-xb-XVH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="kGf-nz-2UB">
+                                <rect key="frame" x="0.0" y="64" width="320" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qmf-v6-t9e">
+                                        <rect key="frame" x="0.0" y="39" width="320" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rya-VD-6ki">
+                                        <rect key="frame" x="8" y="9" width="158" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mQQ-Jc-dBF">
+                                        <rect key="frame" x="191" y="0.0" width="68" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="人气榜">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NXc-ig-OEo">
+                                        <rect key="frame" x="259" y="0.0" width="61" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.46666666670000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="发布">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="publicTopicAction:" destination="Tpz-9O-wbv" eventType="touchUpInside" id="iJW-wU-Bm0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xGz-Dt-1lV">
+                                <rect key="frame" x="0.0" y="104" width="320" height="413"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="朋友圈" id="6fC-UF-btn" userLabel="Item 3"/>
+                    <navigationItem key="navigationItem" title="朋友圈" id="b8V-qa-GZP"/>
+                    <connections>
+                        <outlet property="tableView" destination="xGz-Dt-1lV" id="5ns-w4-FlP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mWS-EK-kVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66" y="724"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="AJJ-0u-wHv">
+            <objects>
+                <navigationController id="vKo-y0-shn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" image="tabbar_my" id="j7n-2O-5aC"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Cg-Zc-qbb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nq1-ZM-ydn" kind="relationship" relationship="rootViewController" id="rsf-Dy-VFW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tV9-m6-Ct0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-369.06666666666666" y="1376.4533333333334"/>
+        </scene>
+        <!--Item 4-->
+        <scene sceneID="oxz-H2-Dz3">
+            <objects>
+                <viewController id="nq1-ZM-ydn" userLabel="Item 4" customClass="MyViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8M6-00-EAP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TEg-tN-Odn">
+                                <rect key="frame" x="0.0" y="37" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="06G-n2-VE5">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_top" id="4Uy-BP-uqo">
+                                            <rect key="frame" x="0.0" y="-39" width="320" height="159"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userface" id="cXH-Nr-wfD">
+                                            <rect key="frame" x="121" y="20" width="79" height="79"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yAA-xm-JxS">
+                                            <rect key="frame" x="104" y="39" width="113" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" title="点击登录">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="loginAction:" destination="nq1-ZM-ydn" eventType="touchUpInside" id="8vL-9R-yO7"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="我的" id="5Pr-Ne-Lef" userLabel="Item 4"/>
+                    <navigationItem key="navigationItem" title="我的" id="nFj-qj-OyD"/>
+                    <connections>
+                        <outlet property="loginBtn" destination="yAA-xm-JxS" id="twb-lg-iZD"/>
+                        <outlet property="tableView" destination="TEg-tN-Odn" id="5b3-nG-MvQ"/>
+                        <outlet property="userPhotoIMg" destination="cXH-Nr-wfD" id="IAl-lz-c4X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wal-tO-KUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64" y="1369"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="activity_tab_bg" width="15" height="40"/>
+        <image name="home_demo" width="559" height="257"/>
+        <image name="main_meijia" width="280" height="192"/>
+        <image name="main_meijie" width="280" height="192"/>
+        <image name="main_meirong" width="280" height="192"/>
+        <image name="main_order_service" width="285" height="394"/>
+        <image name="main_zaoxing" width="280" height="192"/>
+        <image name="my_top" width="326" height="78"/>
+        <image name="tabbar_circle" width="25" height="25"/>
+        <image name="tabbar_home" width="25" height="25"/>
+        <image name="tabbar_my" width="25" height="25"/>
+        <image name="tabbar_order" width="25" height="25"/>
+        <image name="userface" width="131" height="130"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

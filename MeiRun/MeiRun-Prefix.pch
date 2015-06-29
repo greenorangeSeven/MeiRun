@@ -1,0 +1,166 @@
+//
+//  BowlKitchen-Prefix.pch
+//  BowlKitchen
+//
+//  Created by mac on 15/3/9.
+//  Copyright (c) 2015年 greenorange. All rights reserved.
+//
+
+#ifndef BowlKitchen_BowlKitchen_Prefix_pch
+#define BowlKitchen_BowlKitchen_Prefix_pch
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import <QuartzCore/QuartzCore.h>
+#import <MobileCoreServices/UTCoreTypes.h>
+
+//添加的预编译
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+#import "ASIHTTPRequestDelegate.h"
+#import "ASIHTTPRequestConfig.h"
+#import "EGORefreshTableHeaderView.h"
+#import "DataSingleton.h"
+#import "ImgRecord.h"
+#import "IconDownloader.h"
+#import "MBProgressHUD.h"
+#import "GCDiscreetNotificationView.h"
+#import "NdUncaughtExceptionHandler.h"
+//#import "JSNotifier.h"
+#import "AFOSCClient.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFXMLRequestOperation.h"
+#import "Tool.h"
+#import "UserModel.h"
+#import "UIImageView+WebCache.h"
+#import "NSString+STRegex.h"
+
+#define Appkey @"10000001"
+
+#define AppSecret @"U6di1Du0"
+
+#define api_base_url @"http://120.25.154.105:80/"
+
+//#define api_base_url @"http://192.168.1.108:8080/meirun/"
+
+//广告
+#define api_findAdInfoList @"apiAppInfo/findAdInfoList.htm"
+
+//分页商品列表
+#define api_findCommodityByPage @"apiCommodity/findCommodityByPage.htm"
+
+//分页订单列表
+#define api_findOrderByPage @"apiOrder/findOrderByPage.htm"
+
+//分页商品收藏列表
+#define api_findCollectionByPage @"apiCommodity/findCollectionByPage.htm"
+
+//商品详情
+#define api_findCommodityDetails @"apiCommodity/findCommodityDetails.htm"
+
+//商品下单
+#define api_orderSubmit @"apiOrder/orderSubmit.htm"
+
+//判断是否已经收藏商品
+#define api_isCollection @"apiCommodity/isCollection.htm"
+
+//收藏商品
+#define api_addCollection @"apiCommodity/addCollection.htm"
+
+//取消收藏商品
+#define api_delCollection @"apiCommodity/delCollection.htm"
+
+//评论
+#define api_addCommodityComment @"apiCommodity/addCommodityComment.htm"
+
+//发送验证码接口
+#define api_createRegCode @"apiRegUser/createRegCode.htm"
+
+//找回密码接口
+#define api_findPassword @"apiRegUser/findPassword.htm"
+
+//注册接口
+#define api_regUser @"apiRegUser/regUser.htm"
+
+//登录接口
+#define api_login @"apiRegUser/login.htm"
+
+//订单支付成功状态码
+#define ORDER_PAY_OK @"9000"
+
+//订单支付通知
+#define ORDER_PAY_NOTIC @"ORDER_PAY_NOTIC"
+
+//获得社区朋友圈（生活页接口）
+#define api_CircleOfFriends @"topic/findTopicInfoByPage.htm"
+//获得社区朋友圈（社区朋友圈页面接口）
+#define api_findTopicInfoByPageForApp @"topic/findTopicInfoByPageForApp.htm"
+//社区朋友圈取消点赞
+#define api_delTopicHeart @"topic/delTopicHeart.htm"
+//社区朋友圈点赞
+#define api_addTopicHeart @"topic/addTopicHeart.htm"
+//新增社区朋友圈回复
+#define api_addTopicReply @"topic/addTopicReply.htm"
+//删除社区朋友圈
+#define api_delTopicInfo @"topic/delTopicInfo.htm"
+//获取所有话题类型
+#define api_findAllTopicType @"topic/findAllTopicType.htm"
+//获取朋友圈话题
+#define api_addTopicInfo @"topic/addTopicInfo.htm"
+
+//生成支付宝订单参数
+#define api_createAlipayParams @"payment/createAlipayParams.htm"
+
+#define Notification_RefreshTopic @"Notification_RefreshTopic"
+#define Notification_RefreshTrade @"Notification_RefreshTrade"
+
+#define CircleOfFriendsFullCellIdentifier @"CircleOfFriendsFullCellIdentifier"
+#define CircleOfFriendsReplyCellIdentifier @"CircleOfFriendsReplyCellIdentifier"
+#define CircleOfFriendsCellIdentifier @"CircleOfFriendsCellIdentifier"
+#define CircleOfFriendsImgCellIdentifier @"CircleOfFriendsImgCellIdentifier"
+#define RepairImageCellIdentifier @"RepairImageCellIdentifier"
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define IS_IPHONE_6 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )667 ) < DBL_EPSILON )
+#define IS_IPHONE_6plus ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )1104 ) < DBL_EPSILON )
+
+#define IS_IOS7 ([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+#define IS_IOS8 ([[[UIDevice currentDevice]systemVersion]floatValue]>=8.0)
+
+#define loadNext20Tip @"点击加载更多 . . ."
+#define loadingTip @"正在加载 . . ."
+#define networkError @"网络无连接"
+#define noNetworkTip @"网络无连接"
+
+//html头部
+#define HTML_Style @"<meta name='viewport' content='width=decice-width,uer-scalable=no'><style>#web_title {color: #F78022; margin-top: 15px; margin-bottom: 10px; font-weight:bold; text-align:center; font-size:20px;}#web_title img{vertical-align:middle;margin-right:6px;}#web_title a{color:#0D6DA8;}#web_summary {margin-top: 15px; margin-bottom: 10px; font-size:16px;}#web_summaryred {color: #c7252b;margin-top: 15px; margin-bottom: 10px; font-size:16px;}#web_column {background-color:#e5e5e5; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; font-size:16px; margin-right: -7px; margin-left: -7px;}#web_date {color: #000000; margin-top: 15px; margin-bottom: 10px; font-size:14px;text-align:center;}#web_outline {color: #707070; font-size: 12px;}#web_outline a{color:#0D6DA8;}#web_software{color:#808080;font-size:12px}#web_body img {max-width: 300px;}#web_body {font-size:14px;max-width:320px;line-height:24px; margin-top: 5px} #web_body table{max-width:320px;}#web_body pre { font-size:9pt;font-family:Courier New,Arial;border:1px solid #ddd;border-left:5px solid #6CE26C;background:#f6f6f6;padding:5px;}</style>"
+
+#define HTML_Splitline @"<hr style='height:0.5px; background-color:#0D6DA8; margin-bottom:5px'/>"
+#define HTML_Bottom @"<div style='margin-bottom:60px'/>"
+
+#define AppVersion @"1.0"
+#define AppVersionCode @"1"
+
+#define noConnect @"noConnect"
+#define wifi @"wifi"
+#define netConnect @"netConnect"
+
+#ifdef DEBUG
+#define debugLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define debugLog(...)
+#define debugMethod()
+#endif
+
+#endif
+
+#endif
