@@ -27,6 +27,8 @@
     BOOL _reloading;
     NSMutableArray *orderArray;
     NSString *typeName;
+    
+    int selectRow;
 }
 
 @end
@@ -257,38 +259,51 @@
             }
             
             MyOrder *myOrder = [orderArray objectAtIndex:indexPath.row];
+            cell.shopNameLabel.text = myOrder.shopName;
+            cell.stateNameLabel.text = myOrder.stateName;
             cell.nameLabel.text = myOrder.commodity_name;
-            cell.timeLabel.text = [Tool TimestampToDateStr:myOrder.starttimeStamp andFormatterStr:@"yyyy-MM-dd hh:mm"];
-            cell.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",myOrder.totalPrice];
+            cell.addressLabel.text = [NSString stringWithFormat:@"服务地址:%@", myOrder.receivingAddress];
+            cell.timeLabel.text = [NSString stringWithFormat:@"预约时间:%@", [Tool TimestampToDateStr:myOrder.starttimeStamp andFormatterStr:@"yyyy-MM-dd hh:mm"]];
+            cell.priceLabel.text = [NSString stringWithFormat:@"价格:￥%.2f",myOrder.totalPrice];
             CommodityImg *img = [myOrder.commodityList objectAtIndex:0];
             if(img)
             {
                 [cell.orderImg sd_setImageWithURL:[NSURL URLWithString:img.imgUrlFull]];
             }
             
-            
-            
             //添加边框
             CALayer * layer = [cell.opration layer];
             layer.borderColor = [[UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1] CGColor];
             layer.borderWidth = 1.0f;
             layer.cornerRadius = 3.0;
+            
+            CALayer * dellayer = [cell.delOrderBtn layer];
+            dellayer.borderColor = [[UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1] CGColor];
+            dellayer.borderWidth = 1.0f;
+            dellayer.cornerRadius = 3.0;
+            
             if([myOrder.stateName isEqualToString:@"未付款"])
             {
                 [cell.opration setTitle:@"付款购买" forState:UIControlStateNormal];
                 cell.opration.tag = indexPath.row;
                 [cell.opration addTarget:self action:@selector(doPay:) forControlEvents:UIControlEventTouchUpInside];
+                
+                cell.delOrderBtn.tag = indexPath.row;
+                [cell.delOrderBtn addTarget:self action:@selector(closeOrder:) forControlEvents:UIControlEventTouchUpInside];
             }
             else if([myOrder.stateName isEqualToString:@"待评价"])
             {
                 [cell.opration setTitle:@"去评价" forState:UIControlStateNormal];
                 cell.opration.tag = indexPath.row;
                 [cell.opration addTarget:self action:@selector(goComment:) forControlEvents:UIControlEventTouchUpInside];
+                [cell.delOrderBtn setHidden:YES];
             }
             else
             {
-                [cell.opration setTitle:myOrder.stateName forState:UIControlStateNormal];
+                [cell.opration setHidden:YES];
+                [cell.delOrderBtn setHidden:YES];
             }
+            
             return cell;
         }
         else
@@ -398,6 +413,57 @@
     }
 }
 
+- (void)closeOrder:(id)sender
+{
+    if(![[UserModel Instance] getUserInfo])
+    {
+        [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+        return;
+    }
+    UIButton *btn = sender;
+    MyOrder *order = orderArray[btn.tag];
+    selectRow = btn.tag;
+    NSString *orderNo = order.orderId;
+    
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setValue:orderNo forKey:@"orderId"];
+    
+    NSString *delOrderSign = [Tool serializeSign:[NSString stringWithFormat:@"%@%@", api_base_url, api_updateOrderClose] params:param];
+    
+    NSString *delOrderUrl = [NSString stringWithFormat:@"%@%@", api_base_url, api_updateOrderClose];
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:delOrderUrl]];
+    [request setUseCookiePersistence:NO];
+    [request setTimeOutSeconds:30];
+    [request setPostValue:orderNo forKey:@"orderId"];
+    [request setPostValue:delOrderSign forKey:@"sign"];
+    [request setDelegate:self];
+    [request setDidFailSelector:@selector(requestPayFailed:)];
+    [request setDidFinishSelector:@selector(requestDel:)];
+    [request startAsynchronous];
+    request.hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [Tool showHUD:@"请稍后..." andView:self.view andHUD:request.hud];
+}
+
+- (void)requestDel:(ASIHTTPRequest *)request
+{
+    if (request.hud) {
+        [request.hud hide:YES];
+    }
+    NSLog(@"the :%@",request.responseString);
+    [request setUseCookiePersistence:YES];
+    if([request.responseString containsString:@"0000"])
+    {
+        [Tool showCustomHUD:@"删除成功" andView:self.view andImage:nil andAfterDelay:1.2];
+        [orderArray removeObjectAtIndex:selectRow];
+        [self.tableView reloadData];
+    }
+    else
+    {
+        [Tool showCustomHUD:@"评价失败请重试" andView:self.view andImage:nil andAfterDelay:1.2];
+    }
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
@@ -414,7 +480,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 161;
+    if (indexPath.row < [orderArray count])
+    {
+        return 191;
+    }
+    else
+    {
+        return 47;
+    }
 }
 
 /*

@@ -47,9 +47,9 @@
 
 #define AppSecret @"U6di1Du0"
 
-#define api_base_url @"http://120.25.154.105:80/"
+//#define api_base_url @"http://120.25.154.105:80/"
 
-//#define api_base_url @"http://192.168.1.108:8080/meirun/"
+#define api_base_url @"http://192.168.1.108:8080/meirun/"
 
 //广告
 #define api_findAdInfoList @"apiAppInfo/findAdInfoList.htm"
@@ -118,6 +118,8 @@
 
 //生成支付宝订单参数
 #define api_createAlipayParams @"payment/createAlipayParams.htm"
+
+#define api_updateOrderClose @"apiOrder/updateOrderClose.htm"
 
 #define Notification_RefreshTopic @"Notification_RefreshTopic"
 #define Notification_RefreshTrade @"Notification_RefreshTrade"

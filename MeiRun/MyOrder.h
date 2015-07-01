@@ -10,6 +10,7 @@
 
 @interface MyOrder : Jastor
 
+@property (copy, nonatomic) NSString *shopName;
 @property (copy, nonatomic) NSString *stateName;
 @property (copy, nonatomic) NSString *regUserName;
 @property (copy, nonatomic) NSString *payTypeName;
