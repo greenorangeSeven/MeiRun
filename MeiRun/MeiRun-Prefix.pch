@@ -47,9 +47,9 @@
 
 #define AppSecret @"U6di1Du0"
 
-//#define api_base_url @"http://120.25.154.105:80/"
+#define api_base_url @"http://120.25.154.105:80/"
 
-#define api_base_url @"http://192.168.1.108:8080/meirun/"
+//#define api_base_url @"http://192.168.1.108:8080/meirun/"
 
 //广告
 #define api_findAdInfoList @"apiAppInfo/findAdInfoList.htm"
