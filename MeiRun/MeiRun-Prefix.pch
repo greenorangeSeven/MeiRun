@@ -22,6 +22,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import <MobileCoreServices/UTCoreTypes.h>
 
+#define ORIGINAL_MAX_WIDTH 640.0f
+
 //添加的预编译
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
@@ -49,7 +51,7 @@
 
 #define api_base_url @"http://120.25.154.105:80/"
 
-//#define api_base_url @"http://192.168.1.108:8080/meirun/"
+//#define api_base_url @"http://192.168.1.103:8080/meirun/"
 
 //广告
 #define api_findAdInfoList @"apiAppInfo/findAdInfoList.htm"
@@ -115,6 +117,12 @@
 #define api_findAllTopicType @"topic/findAllTopicType.htm"
 //获取朋友圈话题
 #define api_addTopicInfo @"topic/addTopicInfo.htm"
+
+//修改个人资料接口
+#define api_modiRegUserInfo @"apiRegUser/modiRegUserInfo.htm"
+
+//修改头像接口
+#define api_changeUserPhoto @"apiRegUser/changeUserPhoto.htm"
 
 //生成支付宝订单参数
 #define api_createAlipayParams @"payment/createAlipayParams.htm"

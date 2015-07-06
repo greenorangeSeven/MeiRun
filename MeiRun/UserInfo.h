@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSString *nickName;
 @property (nonatomic, retain) NSString *photoFull;
 @property (nonatomic, retain) NSString *bgImgFull;
+@property (nonatomic, retain) NSString *address;
 
 @end

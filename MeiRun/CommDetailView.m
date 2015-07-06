@@ -68,6 +68,8 @@
             rBtn.titleLabel.font = [UIFont systemFontOfSize: 13.0];
             UIBarButtonItem *btnTel = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
             self.navigationItem.rightBarButtonItem = btnTel;
+            
+            [self loadDetail];
         }
     }
     else
@@ -154,6 +156,31 @@
     [Tool showHUD:@"请稍后" andView:self.view andHUD:request.hud];
 }
 
+- (void)loadDetail{
+    //生成列表URL
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setValue:AppSecret forKey:@"accessId"];
+    [param setValue:self.commodityId forKey:@"commodityId"];
+    [param setValue:self.shop_id forKey:@"shop_id"];
+    NSString *getCommodityListUrl = [Tool serializeURL:[NSString stringWithFormat:@"%@%@", api_base_url, api_findCommodityDetails] params:param];
+    NSURL *url = [[NSURL alloc]initWithString:getCommodityListUrl];
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    JSContext *context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    
+    context[@"orderCommodity"] = ^(NSString *time, NSString *address)
+    {
+        //判断是否已经登录,没有登录则登录
+        if(![[UserModel Instance] getUserInfo])
+        {
+            [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+            return;
+        }
+        
+        [self doCreateOrderNo:time andAddress:address];
+    };
+}
+
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     if(!request.hud)
@@ -173,28 +200,7 @@
     [request setUseCookiePersistence:YES];
     if(isCollectioned == 1)
     {
-        //生成列表URL
-        NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-        [param setValue:AppSecret forKey:@"accessId"];
-        [param setValue:self.commodityId forKey:@"commodityId"];
-        [param setValue:self.shop_id forKey:@"shop_id"];
-        NSString *getCommodityListUrl = [Tool serializeURL:[NSString stringWithFormat:@"%@%@", api_base_url, api_findCommodityDetails] params:param];
-        NSURL *url = [[NSURL alloc]initWithString:getCommodityListUrl];
-        
-        [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
-        JSContext *context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-        
-        context[@"orderCommodity"] = ^(NSString *time, NSString *address)
-        {
-            //判断是否已经登录,没有登录则登录
-            if(![[UserModel Instance] getUserInfo])
-            {
-                [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
-                return;
-            }
-            
-            [self doCreateOrderNo:time andAddress:address];
-        };
+        [self loadDetail];
     }
     //未收藏
     if([request.responseString containsString:@"0002"])

@@ -273,6 +273,8 @@
 		04FCE5E71B269A1B00FE73C9 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FCE5D61B269A1B00FE73C9 /* IQToolbar.m */; };
 		04FCE5E81B269A1B00FE73C9 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FCE5D81B269A1B00FE73C9 /* IQUIView+IQKeyboardToolbar.m */; };
 		04FCE5E91B269A1B00FE73C9 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04FCE5DB1B269A1B00FE73C9 /* IQKeyboardManager.bundle */; };
+		14F8C3BD1B4A582E0089185A /* MyInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F8C3BB1B4A582E0089185A /* MyInfoView.m */; };
+		14F8C3BE1B4A582E0089185A /* MyInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F8C3BC1B4A582E0089185A /* MyInfoView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -894,6 +896,9 @@
 		04FCE5D81B269A1B00FE73C9 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		04FCE5D91B269A1B00FE73C9 /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
 		04FCE5DB1B269A1B00FE73C9 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		14F8C3BA1B4A582E0089185A /* MyInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoView.h; sourceTree = "<group>"; };
+		14F8C3BB1B4A582E0089185A /* MyInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoView.m; sourceTree = "<group>"; };
+		14F8C3BC1B4A582E0089185A /* MyInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInfoView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1125,6 +1130,9 @@
 				04B60D8A1B291BED00626E64 /* MyCollectionShopView.h */,
 				04B60D8B1B291BED00626E64 /* MyCollectionShopView.m */,
 				04B60D8C1B291BED00626E64 /* MyCollectionShopView.xib */,
+				14F8C3BA1B4A582E0089185A /* MyInfoView.h */,
+				14F8C3BB1B4A582E0089185A /* MyInfoView.m */,
+				14F8C3BC1B4A582E0089185A /* MyInfoView.xib */,
 			);
 			name = MyPage;
 			sourceTree = "<group>";
@@ -2189,6 +2197,7 @@
 				04E90D681AAD3F9C005409D8 /* cd_my_on.png in Resources */,
 				04B60DE21B29DC0E00626E64 /* bootstrap.min.js in Resources */,
 				04FCE5AB1B26874500FE73C9 /* RegisterView.xib in Resources */,
+				14F8C3BE1B4A582E0089185A /* MyInfoView.xib in Resources */,
 				04E90D671AAD3F9C005409D8 /* cd_my_off@2x.png in Resources */,
 				04B60D8E1B291BED00626E64 /* MyCollectionShopView.xib in Resources */,
 				04E90D621AAD3F9C005409D8 /* cb_mono_off.png in Resources */,
@@ -2366,6 +2375,7 @@
 				04B60D991B295A6300626E64 /* OrderCell.m in Sources */,
 				041DC0661B33C02C00557179 /* NSDataEx.m in Sources */,
 				04E90D141AAD3F9C005409D8 /* NSString+Extensions.m in Sources */,
+				14F8C3BD1B4A582E0089185A /* MyInfoView.m in Sources */,
 				04E90D2A1AAD3F9C005409D8 /* DACircularProgressView.m in Sources */,
 				04E90D091AAD3F9C005409D8 /* DataSingleton.m in Sources */,
 				04E90CE21AAD3F9B005409D8 /* AFPropertyListRequestOperation.m in Sources */,
@@ -2551,8 +2561,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/alipay",
@@ -2576,7 +2586,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = MeiRun;
-				PROVISIONING_PROFILE = "19e60260-76ad-470a-925f-3162c91abc6f";
+				PROVISIONING_PROFILE = "b4ee728d-571d-422f-822d-4efee55f8b32";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
@@ -2587,8 +2597,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/alipay",
@@ -2612,7 +2622,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = MeiRun;
-				PROVISIONING_PROFILE = "19e60260-76ad-470a-925f-3162c91abc6f";
+				PROVISIONING_PROFILE = "b4ee728d-571d-422f-822d-4efee55f8b32";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;

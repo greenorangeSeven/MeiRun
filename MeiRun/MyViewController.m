@@ -10,6 +10,7 @@
 #import "LoginView.h"
 #import "RegisterView.h"
 #import "MyCollectionShopView.h"
+#import "MyInfoView.h"
 
 @interface MyViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -31,7 +32,8 @@
     
     //设置按钮带圆角
     [self.loginBtn.layer setCornerRadius:4.0f];
-    settings = [[NSMutableArray alloc] initWithCapacity:2];
+    settings = [[NSMutableArray alloc] initWithCapacity:3];
+    [settings addObject:@"个人信息"];
     [settings addObject:@"我的收藏"];
 //    [settings addObject:@"我的常用地址"];
     [settings addObject:@"注销"];
@@ -55,6 +57,7 @@
     if(userinfo)
     {
         self.loginBtn.hidden = YES;
+        self.userPhotoIMg.hidden = NO;
         if(userinfo.photoFull)
         {
             [self.userPhotoIMg sd_setImageWithURL:[NSURL URLWithString:[[UserModel Instance] getUserInfo].photoFull]];
@@ -74,7 +77,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 75.0f;
+    return 55.0f;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -120,6 +123,17 @@
             [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
             return;
         }
+        MyInfoView *myInfoView = [[MyInfoView alloc] init];
+        myInfoView.hidesBottomBarWhenPushed =YES;
+        [self.navigationController pushViewController:myInfoView animated:YES];
+    }
+    if(indexPath.row == 1)
+    {
+        if(![[UserModel Instance] getUserInfo])
+        {
+            [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+            return;
+        }
         MyCollectionShopView *myShopView = [[MyCollectionShopView alloc] init];
         myShopView.hidesBottomBarWhenPushed =YES;
         [self.navigationController pushViewController:myShopView animated:YES];
@@ -132,7 +146,7 @@
 //            return;
 //        }
 //    }
-    if(indexPath.row == 1)
+    if(indexPath.row == 2)
     {
         [[UserModel Instance] logoutUser];
         self.userPhotoIMg.hidden = YES;
