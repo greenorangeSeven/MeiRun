@@ -23,6 +23,7 @@
 - (IBAction)xiaoliangSortAction:(id)sender;
 
 - (IBAction)priceSortAction:(id)sender;
-
+@property (weak, nonatomic) IBOutlet UIButton *price2Btn;
+- (IBAction)priceSort2Action:(id)sender;
 
 @end

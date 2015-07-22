@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInView">
+            <connections>
+                <outlet property="integralLb" destination="cur-c0-oSO" id="Hlw-Sx-RCK"/>
+                <outlet property="luckyDrawBtn" destination="Q6R-xe-fWE" id="0OU-rS-bkU"/>
+                <outlet property="signInBtn" destination="kcL-5y-YWp" id="lfi-jJ-mpP"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signin_top" translatesAutoresizingMaskIntoConstraints="NO" id="wH3-qk-RnU">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="169"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signin_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="ecB-KH-aNz">
+                    <rect key="frame" x="0.0" y="499" width="320" height="69"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="69" id="WSZ-dX-OPY"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcL-5y-YWp">
+                    <rect key="frame" x="44" y="179" width="232" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="H0D-hl-I8Z"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="今日签到" backgroundImage="button_orange">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="signInAction:" destination="-1" eventType="touchUpInside" id="WS1-Xu-hke"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您目前有0积分，10积分可以抽奖一次哦" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cur-c0-oSO">
+                    <rect key="frame" x="8" y="232" width="304" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="beW-rb-K93"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.63529411759999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6R-xe-fWE">
+                    <rect key="frame" x="123" y="276" width="75" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="5gW-PL-3ag"/>
+                    </constraints>
+                    <state key="normal" image="luckydraw">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="luckyDrawAction:" destination="-1" eventType="touchUpInside" id="LTl-6I-K3f"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="立即去抽奖" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwn-m9-shK">
+                    <rect key="frame" x="49" y="359" width="223" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Xi0-7P-7hD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.63529411759999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本抽奖活动由长沙伊润公司举办，与美国Apple公司无关" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hI7-cq-QfW">
+                    <rect key="frame" x="64" y="385" width="192" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="Zdi-5s-crp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="wH3-qk-RnU" firstAttribute="leading" secondItem="ecB-KH-aNz" secondAttribute="leading" id="0Vw-jt-0Er"/>
+                <constraint firstAttribute="bottom" secondItem="ecB-KH-aNz" secondAttribute="bottom" id="1O2-Tq-Dnt"/>
+                <constraint firstAttribute="trailing" secondItem="ecB-KH-aNz" secondAttribute="trailing" id="2fq-Ko-jsz"/>
+                <constraint firstItem="kcL-5y-YWp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="44" id="480-Y9-3WQ"/>
+                <constraint firstItem="Q6R-xe-fWE" firstAttribute="centerX" secondItem="cur-c0-oSO" secondAttribute="centerX" id="7cW-8w-m6Y"/>
+                <constraint firstItem="cur-c0-oSO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="8U9-Dh-cX5"/>
+                <constraint firstItem="hI7-cq-QfW" firstAttribute="top" secondItem="Zwn-m9-shK" secondAttribute="bottom" constant="5" id="8yJ-hP-kmB"/>
+                <constraint firstAttribute="centerX" secondItem="cur-c0-oSO" secondAttribute="centerX" id="ATw-iJ-t69"/>
+                <constraint firstItem="hI7-cq-QfW" firstAttribute="centerX" secondItem="ecB-KH-aNz" secondAttribute="centerX" id="ArD-O6-gdr"/>
+                <constraint firstItem="Zwn-m9-shK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="DIr-rX-aQj"/>
+                <constraint firstItem="cur-c0-oSO" firstAttribute="top" secondItem="kcL-5y-YWp" secondAttribute="bottom" constant="8" id="Gxj-b9-VpC"/>
+                <constraint firstItem="cur-c0-oSO" firstAttribute="top" secondItem="kcL-5y-YWp" secondAttribute="bottom" constant="8" symbolic="YES" id="K9f-rt-iu8"/>
+                <constraint firstItem="Zwn-m9-shK" firstAttribute="centerX" secondItem="Q6R-xe-fWE" secondAttribute="centerX" id="NHR-ec-fcI"/>
+                <constraint firstAttribute="bottom" secondItem="ecB-KH-aNz" secondAttribute="bottom" id="NmO-dy-EjU"/>
+                <constraint firstItem="cur-c0-oSO" firstAttribute="centerX" secondItem="kcL-5y-YWp" secondAttribute="centerX" id="OP3-A9-YWn"/>
+                <constraint firstItem="ecB-KH-aNz" firstAttribute="top" secondItem="hI7-cq-QfW" secondAttribute="bottom" constant="68" id="OqQ-e0-hrq"/>
+                <constraint firstItem="hI7-cq-QfW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="64" id="Rvh-A4-Nir"/>
+                <constraint firstItem="kcL-5y-YWp" firstAttribute="top" secondItem="wH3-qk-RnU" secondAttribute="bottom" constant="10" id="T1w-XZ-BUB"/>
+                <constraint firstAttribute="centerX" secondItem="hI7-cq-QfW" secondAttribute="centerX" id="Xkk-6x-luF"/>
+                <constraint firstItem="ecB-KH-aNz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bdy-dg-RFQ"/>
+                <constraint firstItem="Zwn-m9-shK" firstAttribute="centerX" secondItem="hI7-cq-QfW" secondAttribute="centerX" id="cN4-s3-o0g"/>
+                <constraint firstItem="Q6R-xe-fWE" firstAttribute="top" secondItem="cur-c0-oSO" secondAttribute="bottom" constant="23" id="djR-sc-Cae"/>
+                <constraint firstItem="wH3-qk-RnU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dr0-1Y-k4y"/>
+                <constraint firstAttribute="centerX" secondItem="kcL-5y-YWp" secondAttribute="centerX" id="eN1-wJ-KF9"/>
+                <constraint firstItem="wH3-qk-RnU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="erJ-T4-vGz"/>
+                <constraint firstItem="kcL-5y-YWp" firstAttribute="top" secondItem="wH3-qk-RnU" secondAttribute="bottom" constant="10" id="euM-A6-SBQ"/>
+                <constraint firstAttribute="centerX" secondItem="Q6R-xe-fWE" secondAttribute="centerX" id="iMN-90-r00"/>
+                <constraint firstAttribute="trailing" secondItem="wH3-qk-RnU" secondAttribute="trailing" id="m3u-b9-xmw"/>
+                <constraint firstItem="Zwn-m9-shK" firstAttribute="top" secondItem="Q6R-xe-fWE" secondAttribute="bottom" constant="8" symbolic="YES" id="mp7-ki-JWu"/>
+                <constraint firstItem="wH3-qk-RnU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="o6a-up-QQQ"/>
+                <constraint firstItem="kcL-5y-YWp" firstAttribute="top" secondItem="wH3-qk-RnU" secondAttribute="bottom" constant="10" id="rIC-Wz-HNA"/>
+                <constraint firstItem="Zwn-m9-shK" firstAttribute="top" secondItem="Q6R-xe-fWE" secondAttribute="bottom" constant="8" id="uS4-eB-uWa"/>
+                <constraint firstItem="ecB-KH-aNz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vai-K9-EHq"/>
+                <constraint firstItem="Q6R-xe-fWE" firstAttribute="top" secondItem="cur-c0-oSO" secondAttribute="bottom" constant="23" id="zvW-Cf-bz1"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="276" y="152"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="button_orange" width="231" height="45"/>
+        <image name="luckydraw" width="75" height="75"/>
+        <image name="signin_bottom" width="320" height="69"/>
+        <image name="signin_top" width="320" height="164"/>
+    </resources>
+</document>

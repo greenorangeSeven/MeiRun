@@ -11,6 +11,7 @@
 #import "RegisterView.h"
 #import "MyCollectionShopView.h"
 #import "MyInfoView.h"
+#import "NewMessagePageView.h"
 
 @interface MyViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -35,7 +36,7 @@
     settings = [[NSMutableArray alloc] initWithCapacity:3];
     [settings addObject:@"个人信息"];
     [settings addObject:@"我的收藏"];
-//    [settings addObject:@"我的常用地址"];
+    [settings addObject:@"资讯"];
     [settings addObject:@"注销"];
     
     self.tableView.dataSource = self;
@@ -104,11 +105,13 @@
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
     if ([buttonTitle isEqualToString:@"登录"]) {
         LoginView *loginView = [[LoginView alloc] init];
+        loginView.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:loginView animated:YES];
     }
     else if([buttonTitle isEqualToString:@"注册"])
     {
         RegisterView *regView = [[RegisterView alloc] init];
+        regView.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:regView animated:YES];
     }
 }
@@ -138,15 +141,13 @@
         myShopView.hidesBottomBarWhenPushed =YES;
         [self.navigationController pushViewController:myShopView animated:YES];
     }
-//    if(indexPath.row == 1)
-//    {
-//        if(![[UserModel Instance] getUserInfo])
-//        {
-//            [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
-//            return;
-//        }
-//    }
     if(indexPath.row == 2)
+    {
+        NewMessagePageView *messageView = [[NewMessagePageView alloc] init];
+        messageView.hidesBottomBarWhenPushed =YES;
+        [self.navigationController pushViewController:messageView animated:YES];
+    }
+    if(indexPath.row == 3)
     {
         [[UserModel Instance] logoutUser];
         self.userPhotoIMg.hidden = YES;

@@ -29,6 +29,9 @@
     //设置按钮带圆角
     [self.loginBtn.layer setCornerRadius:4.0f];
     [self.registerBtn.layer setCornerRadius:4.0f];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)didReceiveMemoryWarning

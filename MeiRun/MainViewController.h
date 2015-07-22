@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *advImg;
 - (IBAction)orderServiceAction:(id)sender;
 - (IBAction)meiJie:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)meiJiaAction:(id)sender;
 - (IBAction)meiRongAction:(id)sender;

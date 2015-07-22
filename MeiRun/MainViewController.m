@@ -13,6 +13,9 @@
 #import "CommDetailView.h"
 #import "ShopViewController.h"
 #import "OrderServiceView.h"
+#import "SignInView.h"
+#import "LoginView.h"
+#import "RegisterView.h"
 
 @interface MainViewController ()<SGFocusImageFrameDelegate>
 {
@@ -35,7 +38,59 @@
     UIBarButtonItem *btnTel = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
     self.navigationItem.rightBarButtonItem = btnTel;
     
+    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithTitle: @"签到有奖" style:UIBarButtonItemStyleBordered target:self action:@selector(signInAction:)];
+    self.navigationItem.leftBarButtonItem = leftBtn;
+        
+    if (IS_IPHONE_4) {
+        [self.scrollView setFrame:CGRectMake(0.0, 0.0,self.view.frame.size.width, 480)];
+        [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 517)];
+    }
+    
     [self getADVData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shopReload:) name:@"orderService" object:nil];
+}
+
+- (void)signInAction:(id *)sender
+{
+    if(![[UserModel Instance] getUserInfo])
+    {
+        [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+        return;
+    }
+    SignInView *signInView = [[SignInView alloc] init];
+    signInView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:signInView animated:YES];
+}
+
+- (void)shopReload:(NSNotification *)notification
+{
+    NSDictionary *dic = [notification userInfo];
+    NSString *type = [dic objectForKey:@"tag"];
+    ShopViewController *shopView = [[UIStoryboard storyboardWithName:@"MainPage" bundle:nil] instantiateViewControllerWithIdentifier:@"ShopViewController"];
+    if ([type isEqualToString:@"1"]) {
+        
+        shopView.titleStr = @"美体";
+        shopView.typeId = @"1143260566727500";
+        
+    }
+    else if ([type isEqualToString:@"2"])
+    {
+        shopView.titleStr = @"美甲";
+        shopView.typeId = @"1143260574016700";
+    }
+    else if ([type isEqualToString:@"3"])
+    {
+        shopView.titleStr = @"美容";
+        shopView.typeId = @"1143260584421400";
+    }
+    else if ([type isEqualToString:@"4"])
+    {
+        shopView.titleStr = @"化妆造型";
+        shopView.typeId = @"1143260595553400";
+    }
+    shopView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:shopView animated:YES];
 }
 
 - (void)getADVData
@@ -156,7 +211,7 @@
 - (IBAction)meiJie:(id)sender
 {
     ShopViewController *shopView = [[UIStoryboard storyboardWithName:@"MainPage" bundle:nil] instantiateViewControllerWithIdentifier:@"ShopViewController"];
-    shopView.titleStr = @"美睫";
+    shopView.titleStr = @"美体";
     shopView.typeId = @"1143260566727500";
     shopView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:shopView animated:YES];
@@ -199,4 +254,21 @@
     self.navigationItem.backBarButtonItem = backItem;
     
 }
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if ([buttonTitle isEqualToString:@"登录"]) {
+        LoginView *loginView = [[LoginView alloc] init];
+        loginView.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:loginView animated:YES];
+    }
+    else if([buttonTitle isEqualToString:@"注册"])
+    {
+        RegisterView *regView = [[RegisterView alloc] init];
+        regView.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:regView animated:YES];
+    }
+}
+
 @end

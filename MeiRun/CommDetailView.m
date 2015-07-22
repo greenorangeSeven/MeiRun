@@ -275,6 +275,7 @@
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
     if ([buttonTitle isEqualToString:@"登录"]) {
         LoginView *loginView = [[LoginView alloc] init];
+        loginView.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:loginView animated:YES];
     }
     else if([buttonTitle isEqualToString:@"注册"])

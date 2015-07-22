@@ -429,6 +429,8 @@
     [self.xiaoliangBtn setBackgroundImage:nil forState:UIControlStateNormal];
     [self.priceBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.priceBtn setBackgroundImage:nil forState:UIControlStateNormal];
+    [self.price2Btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.price2Btn setBackgroundImage:nil forState:UIControlStateNormal];
     
     sortStr = nil;
     isInit = YES;
@@ -445,6 +447,8 @@
     [self.zongheBtn setBackgroundImage:nil forState:UIControlStateNormal];
     [self.priceBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.priceBtn setBackgroundImage:nil forState:UIControlStateNormal];
+    [self.price2Btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.price2Btn setBackgroundImage:nil forState:UIControlStateNormal];
     
     sortStr = @"sale_count-desc";
     isInit = YES;
@@ -461,8 +465,28 @@
     [self.zongheBtn setBackgroundImage:nil forState:UIControlStateNormal];
     [self.xiaoliangBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.xiaoliangBtn setBackgroundImage:nil forState:UIControlStateNormal];
+    [self.price2Btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.price2Btn setBackgroundImage:nil forState:UIControlStateNormal];
     
     sortStr = @"price-asc";
+    isInit = YES;
+    isLoadOver = NO;
+    [commodityArray removeAllObjects];
+    [self reload:NO];
+}
+
+- (IBAction)priceSort2Action:(id)sender
+{
+    [self.price2Btn setTitleColor:[UIColor colorWithRed:0.93 green:0.35 blue:0.53 alpha:1] forState:UIControlStateNormal];
+    [self.price2Btn setBackgroundImage:[UIImage imageNamed:@"activity_tab_bg"] forState:UIControlStateNormal];
+    [self.zongheBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.zongheBtn setBackgroundImage:nil forState:UIControlStateNormal];
+    [self.xiaoliangBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.xiaoliangBtn setBackgroundImage:nil forState:UIControlStateNormal];
+    [self.priceBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.priceBtn setBackgroundImage:nil forState:UIControlStateNormal];
+    
+    sortStr = @"price-desc";
     isInit = YES;
     isLoadOver = NO;
     [commodityArray removeAllObjects];

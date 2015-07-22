@@ -51,7 +51,7 @@
 
 #define api_base_url @"http://120.25.154.105:80/"
 
-//#define api_base_url @"http://192.168.1.103:8080/meirun/"
+//#define api_base_url @"http://192.168.1.106:8080/meirun/"
 
 //广告
 #define api_findAdInfoList @"apiAppInfo/findAdInfoList.htm"
@@ -118,6 +118,12 @@
 //获取朋友圈话题
 #define api_addTopicInfo @"topic/addTopicInfo.htm"
 
+//新闻资讯列表接口
+#define api_findNewsInfoByPage @"apiAppInfo/findNewsInfoByPage.htm"
+
+//新闻资讯详情接口
+#define api_findNewsInfoById @"apiAppInfo/findNewsInfoById.htm"
+
 //修改个人资料接口
 #define api_modiRegUserInfo @"apiRegUser/modiRegUserInfo.htm"
 
@@ -129,6 +135,14 @@
 
 #define api_updateOrderClose @"apiOrder/updateOrderClose.htm"
 
+//签到
+#define api_signin @"integral/signin.htm"
+//抽奖页面
+#define htm_lottery @"app/lottery.htm?ios=1&"
+
+//获取用户信息
+#define api_findRegUserInfoByUserId @"apiRegUser/findRegUserInfoByUserId.htm"
+
 #define Notification_RefreshTopic @"Notification_RefreshTopic"
 #define Notification_RefreshTrade @"Notification_RefreshTrade"
 
@@ -138,6 +152,8 @@
 #define CircleOfFriendsImgCellIdentifier @"CircleOfFriendsImgCellIdentifier"
 #define RepairImageCellIdentifier @"RepairImageCellIdentifier"
 
+
+#define IS_IPHONE_4 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 #define IS_IPHONE_6 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )667 ) < DBL_EPSILON )
 #define IS_IPHONE_6plus ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )1104 ) < DBL_EPSILON )

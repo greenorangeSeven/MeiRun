@@ -770,7 +770,7 @@
                 topic.replyHeight += reply.contentHeight;
                 
                 reply.replyContentAttr = [[NSMutableAttributedString alloc] initWithString:reply.replyContent];
-                [reply.replyContentAttr addAttribute:NSForegroundColorAttributeName value:[Tool getColorForMain] range:NSMakeRange(0, [reply.nickName length] + 1)];
+                [reply.replyContentAttr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:236.0/255.0 green:119.0/255.0 blue:36.0/255.0 alpha:1.0] range:NSMakeRange(0, [reply.nickName length] + 1)];
             }
             
             topic.starttime = [Tool intervalSinceNow:[Tool TimestampToDateStr:topic.starttimeStamp  andFormatterStr:@"yyyy-MM-dd HH:mm:ss"]];
