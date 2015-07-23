@@ -40,11 +40,11 @@
     
     UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithTitle: @"签到有奖" style:UIBarButtonItemStyleBordered target:self action:@selector(signInAction:)];
     self.navigationItem.leftBarButtonItem = leftBtn;
-        
-    if (IS_IPHONE_4) {
-        [self.scrollView setFrame:CGRectMake(0.0, 0.0,self.view.frame.size.width, 480)];
-        [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 517)];
-    }
+    
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+    
+    [self.scrollView setFrame:CGRectMake(0.0, 0.0,self.view.frame.size.width, self.view.frame.size.height)];
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 517);
     
     [self getADVData];
     
@@ -192,14 +192,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 - (IBAction)orderServiceAction:(id)sender
